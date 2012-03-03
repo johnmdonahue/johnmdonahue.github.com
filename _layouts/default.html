@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <!--
+
+  Source: https://github.com/johnmdonahue/johnmdonahue.github.com
+  Twitter Bootstrap: http://twitter.github.com/bootstrap
+  GitHub Pages: http://pages.github.com/
+  Jekyll static site generator: http://github.com/mojombo/jekyll
+
+  -->
+
+  <meta name="author" content="{{ site.author.name }}">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:title" content="{{ site.title }}{% if page.title %} &raquo; {{ page.title }}{% endif %}">
+  <meta property="og:type" content="{% if page.is_index %}website{% else %}article{% endif %}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="http://gravatar.com/avatar/{{ site.author.gravatar }}?s=150">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <!-- Le styles -->
+
+  <link rel="stylesheet" href="/css/main.css" type="text/css">
+  <link rel="shortcut icon" href="http://gravatar.com/avatar/{{ site.author.gravatar }}?s=32">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="http://jmd.io/rss.xml">
+</head>
+<body>
+  <div id="" class="container">
+    <header class="page-header">
+      <h1><a href="/">{{ site.url }}</a></h1>
+    </header>
+    <section>
+      {{ content }}
+    </section>
+    <footer class="page-footer">
+      &copy; Copyright {{ site.time | date: "%Y" }} {{ site.author.name }}
+      <ul class="unstyled">
+        <li>
+          <a href="http://github.com/{{ site.author.github }}">
+            https://github.com/{{ site.author.github }}
+          </a>
+        </li>
+        <li>
+          <a href="http://twitter.com/{{ site.author.twitter }}">
+            https://twitter.com/{{ site.author.twitter }}
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+  <script>
+    // Twitter
+    !function(d,s,id){
+      var js,fjs=d.getElementsByTagName(s)[0];
+      if(!d.getElementById(id)){
+        js=d.createElement(s);
+        js.id=id;
+        js.src="//platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js,fjs);
+      }
+    }(document,"script","twitter-wjs");
+    
+    // Google
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29512093-1']);
+    _gaq.push(['_setDomainName', 'jmd.io']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>

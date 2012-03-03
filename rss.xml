@@ -1,0 +1,29 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title }}</title>
+    <link>{{ site.url }}</link>
+    <description></description>
+    <language>en-us</language>
+    <copyright>Copyright {{ site.time | date: "%Y" }} {{ site.author.name }}</copyright>
+    <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+    <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+    <docs>http://cyber.law.harvard.edu/rss/rss.html</docs>
+    <generator>Jekyll: https://github.com/johnmdonahue/johnmdonahue.github.com</generator>
+    <managingEditor>{{ site.author.email }}</managingEditor>
+    <webMaster>{{ site.author.email }}</webMaster>    
+    {% for post in site.posts %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>{{ site.url }}{{ post.url }}</link>
+      <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+      <author>{{ site.author.email }}</author>
+      <guid>{{ site.url }}{{ post.id }}</guid>
+      <description>{{ post.content | xml_escape }}</description>
+    </item>
+    {% endfor %}
+  </channel> 
+</rss>
