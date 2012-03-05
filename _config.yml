@@ -2,7 +2,7 @@
 pygments: true
 markdown: redcarpet
 paginate: 10 
-permalink: /:title/ 
+permalink: /:year/:title/ 
 exclude: ["README.md"]
 auto: true
 pygments: true
