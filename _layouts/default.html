@@ -6,10 +6,9 @@
 
   <!--
 
-  Source: https://github.com/johnmdonahue/johnmdonahue.github.com
-  Twitter Bootstrap: http://twitter.github.com/bootstrap
-  GitHub Pages: http://pages.github.com/
-  Jekyll static site generator: http://github.com/mojombo/jekyll
+  ♥ Twitter Bootstrap: http://twitter.github.com/bootstrap
+  ♥ GitHub Pages: http://pages.github.com/
+  ♥ Jekyll static site generator: http://github.com/mojombo/jekyll
 
   -->
 
@@ -38,9 +37,21 @@
       <h1><a href="/">{{ site.url }}</a></h1>
     </header>
     <section>
+      <ul class="unstyled">
+        <li>
+          <a href="http://github.com/{{ site.author.github }}">
+            https://github.com/{{ site.author.github }}
+          </a>
+        </li>
+        <li>
+          <a href="http://twitter.com/{{ site.author.twitter }}">
+            https://twitter.com/{{ site.author.twitter }}
+          </a>
+        </li>
+      </ul>
       {{ content }}
     </section>
-    <footer class="page-footer">
+    <!-- <footer class="page-footer">
       &copy; Copyright {{ site.time | date: "%Y" }} {{ site.author.name }}
       <ul class="unstyled">
         <li>
@@ -54,7 +65,7 @@
           </a>
         </li>
       </ul>
-    </footer>
+    </footer> -->
   </div>
   <script>
     // Twitter
