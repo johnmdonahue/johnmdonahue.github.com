@@ -37,22 +37,9 @@
       <h1><a href="/">{{ site.url }}</a></h1>
     </header>
     <section>
-      <ul class="unstyled">
-        <li>
-          <a href="http://github.com/{{ site.author.github }}">
-            https://github.com/{{ site.author.github }}
-          </a>
-        </li>
-        <li>
-          <a href="http://twitter.com/{{ site.author.twitter }}">
-            https://twitter.com/{{ site.author.twitter }}
-          </a>
-        </li>
-      </ul>
       {{ content }}
     </section>
-    <!-- <footer class="page-footer">
-      &copy; Copyright {{ site.time | date: "%Y" }} {{ site.author.name }}
+    <footer class="page-footer">
       <ul class="unstyled">
         <li>
           <a href="http://github.com/{{ site.author.github }}">
@@ -65,7 +52,10 @@
           </a>
         </li>
       </ul>
-    </footer> -->
+      <p>
+        <small>&copy; Copyright {{ site.time | date: "%Y" }} {{ site.author.name }}</small>
+      </p>
+    </footer>
   </div>
   <script>
     // Twitter
