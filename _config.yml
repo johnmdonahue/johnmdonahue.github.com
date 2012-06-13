@@ -8,7 +8,7 @@ auto: true
 pygments: true
 baseurl: /
 url: http://johnmdonahue.com
-title: johnmdonahue.com
+title: johnmdonahue
 author:
   name: John Donahue
   email: johnmdonahue@gmail.com
