@@ -1,8 +1,8 @@
-# jmd.io
+# johnmdonahue.com
 
 ## About
 
-This is the repo for [jmd.io](http://jmd.io), my personal site powered by 
+This is the repo for [johnmdonahue.com](http://johnmdonahue.com), my personal site powered by 
 [Jekyll](http://github.com/mojombo/jekyll) and hosted on [GitHub Pages](http://pages.github.com/).
 
 ## License
