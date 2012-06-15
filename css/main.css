@@ -188,17 +188,18 @@ article p {
 }
 .page-header a {
   padding: 10px;
-  color: #999;
 }
 .page-header a:hover, .page-header a:focus {
   text-decoration: none;
-  color: #333;
 }
 ul.social-icons li {
   display: inline-block;
 }
 ul.social-icons li a {
   color: #ddd;
+}
+ul.social-icons li a:hover, ul.social-icons li a:focus {
+  color: #777;
 }
 .page-footer {
   border-top: 1px solid #eeeeee;
