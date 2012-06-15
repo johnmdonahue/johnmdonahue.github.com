@@ -5,11 +5,10 @@
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 
   <!--
-
-  ♥ Twitter Bootstrap: http://twitter.github.com/bootstrap
-  ♥ GitHub Pages: http://pages.github.com/
-  ♥ Jekyll static site generator: http://github.com/mojombo/jekyll
-
+  Hosted on GitHub Pages: http://pages.github.com/
+  Using Jekyll: http://github.com/mojombo/jekyll
+  Twitter Bootstrap: http://twitter.github.com/bootstrap
+  Icons ripped from FontAwesome: http://fortawesome.github.com/Font-Awesome/
   -->
 
   <meta name="author" content="{{ site.author.name }}">
@@ -33,46 +32,28 @@
   <link href="http://gravatar.com/avatar/{{ site.author.gravatar }}?s=72"  rel="apple-touch-icon" sizes="72x72">
   <link href="http://gravatar.com/avatar/{{ site.author.gravatar }}?s=114" rel="apple-touch-icon" sizes="114x114">
   <link href="http://gravatar.com/avatar/{{ site.author.gravatar }}?s=144" rel="apple-touch-icon" sizes="144x144">
-  <link href="http://feeds.feedburner.com/johnmdonahue" rel="alternate" type="application/rss+xml" title="{{ site.title }}" >
+  <link href="http://feeds.feedburner.com/{{ site.title }}" rel="alternate" type="application/rss+xml" title="{{ site.title }}" >
 </head>
 <body>
-  <div id="" class="container">
+  <div class="container">
     <header class="page-header">
       <h1><a href="/">{{ site.title }}</a></h1>
+      <ul class="social-icons unstyled pull-right">
+        <li><a href="https://github.com/{{ site.author.github }}"><span class="icon icon-github"></span><span class="hidden">GitHub</span></a></li>
+        <li><a href="https://twitter.com/{{ site.author.twitter }}"><span class="icon icon-twitter"></span><span class="hidden">Twitter</span></a></li>
+        <li><a href="/rss.xml"><span class="icon icon-rss"></span><span class="hidden">RSS</span></a></li>
+      </ul>
     </header>
     <section>
       {{ content }}
     </section>
     <footer class="page-footer">
-      <ul class="unstyled">
-        <li>
-          <a href="https://github.com/{{ site.author.github }}">
-             github.com/{{ site.author.github }}
-          </a>
-        </li>
-        <li>
-          <a href="https://twitter.com/{{ site.author.twitter }}">
-            twitter.com/{{ site.author.twitter }}
-          </a>
-        </li>
-      </ul>
       <p>
         <small>&copy; Copyright {{ site.time | date: "%Y" }} {{ site.author.name }}</small>
       </p>
     </footer>
   </div>
   <script>
-    // Twitter
-    !function(d,s,id){
-      var js,fjs=d.getElementsByTagName(s)[0];
-      if(!d.getElementById(id)){
-        js=d.createElement(s);
-        js.id=id;
-        js.src="//platform.twitter.com/widgets.js";
-        fjs.parentNode.insertBefore(js,fjs);
-      }
-    }(document,"script","twitter-wjs");
-    
     // Google
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-32617065-1']);
