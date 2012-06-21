@@ -3,7 +3,7 @@ pygments: true
 markdown: redcarpet
 paginate: 10 
 permalink: /:year/:title/ 
-exclude: ["README.md"]
+exclude: [README.md, less, CNAME]
 auto: true
 pygments: true
 baseurl: /
