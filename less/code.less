@@ -3,11 +3,34 @@
 // --------------------------------------------------------
 
 // Inline and block code styles
+.gist .gist-file .gist-data pre {
+  #font > #family > .monospace !important;
+  padding: 0px !important;
+}
+.gist .gist-file .gist-data, .gist .gist-file .gist-meta {
+  background-color: @white !important;
+  line-height: @baseLineHeight - 10;
+  padding: 20px 0px;
+}
+.gist .gist-file {
+  border-left: 0px !important;
+  border-right: 0px !important;
+}
+.gist .gist-file .gist-meta {
+  font-family: @sansFontFamily;
+  color: @gray !important;
+  font-size: @baseFontSize - 4 !important;
+}
+.gist .gist-file .gist-meta a, .gist .gist-file .gist-meta a:hover, .gist .gist-file .gist-meta a:visited {
+  color: @black !important;
+  border: none !important;
+}
+
 code,
 pre {
   padding: 0 3px 2px;
   #font > #family > .monospace;
-  font-size: @baseFontSize - 2;
+  font-size: @baseFontSize - 4;
   color: @grayDark;
   .border-radius(3px);
 }
@@ -24,12 +47,13 @@ pre {
   display: block;
   padding: (@baseLineHeight - 1) / 2;
   margin: 0 0 @baseLineHeight / 2;
-  font-size: @baseFontSize - 2; // 13px to 12px
-  line-height: @baseLineHeight;
+  font-size: @baseFontSize - 4; // 16px to 12px
+  line-height: @baseLineHeight - 10;
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;
   white-space: pre-wrap;
+  white-space: nowrap;
   background-color: #f5f5f5;
   border: 1px solid #ccc; // fallback for IE7-8
   border: 1px solid rgba(0,0,0,.15);

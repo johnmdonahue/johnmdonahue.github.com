@@ -10,12 +10,12 @@
 
 // Grays
 // -------------------------
-@black:                 #000;
+@black:                 #111;
 @grayDarker:            #222;
 @grayDark:              #333;
 @gray:                  #555;
-@grayLight:             #aaa;
-@grayLighter:           #ddd;
+@grayLight:             #999;
+@grayLighter:           #ccc;
 @white:                 #fff;
 
 
@@ -39,8 +39,8 @@
 
 // Links
 // -------------------------
-@linkColor:             #2978A0;
-@linkColorHover:        darken(@linkColor, 15%);
+@linkColor:             @black; /*#657B83;*/ /*#2978A0;*/
+@linkColorHover:        @black; /*darken(@linkColor, 15%);*/
 
 
 // Typography
@@ -52,9 +52,9 @@
 /*@monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;*/
 @monoFontFamily:        Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
 
-@baseFontSize:          14px;
+@baseFontSize:          16px;
 @baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        24px;
+@baseLineHeight:        30px;
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    @sansFontFamily; // empty to use BS default, @baseFontFamily
@@ -199,8 +199,8 @@
 // Default 940px grid
 // -------------------------
 @gridColumns:             12;
-@gridColumnWidth:         40px;
-@gridGutterWidth:         10px;
+@gridColumnWidth:         30px;
+@gridGutterWidth:         20px;
 @gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
 
 // Fluid grid
