@@ -5,7 +5,7 @@ is_index: true
               <ul class="post-list closing-credits unstyled">
               {% for post in site.posts %}
                 <li>
-                  <a href="{{ post.url }}"><span class="title">{{ post.title }}</a> <small class="date pull-right">{{ post.date | date_to_string }}</small>
+                  <small class="date pull-right">{{ post.date | date_to_string }}</small> <a href="{{ post.url }}"><span class="title">{{ post.title }}</a>
                 </li>
               {% endfor %}
               </ul>
