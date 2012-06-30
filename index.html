@@ -2,10 +2,24 @@
 layout: default
 is_index: true
 ---
-              <ul class="post-list closing-credits unstyled">
-              {% for post in site.posts %}
-                <li>
-                  <small class="date pull-right">{{ post.date | date_to_string }}</small> <a href="{{ post.url }}"><span class="title">{{ post.title }}</a>
-                </li>
-              {% endfor %}
-              </ul>
+                  {% for post in site.posts limit:10 %}
+                  <article>
+                    <header>
+                      <h2>
+                        <a href="{{ post.url }}"><span class="title">{{ post.title }}</span></a>
+                      </h2>
+                      <p class="meta">
+                        {{ post.date | date_to_long_string }}
+                      </p>
+                    </header>
+                    <section>
+                      {{ post.content | split: '<!-- more -->' | first }}
+                      <p>
+                        <em><a href="{{ post.url }}">more &hellip;</a></em>
+                      </p>
+                    </section>
+                  </article>
+                  {% unless forloop.last %}
+                  <hr>
+                  {% endunless %}
+                  {% endfor %}

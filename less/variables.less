@@ -10,14 +10,13 @@
 
 // Grays
 // -------------------------
-@black:                 #111;
+@black:                 #000;
 @grayDarker:            #222;
 @grayDark:              #333;
 @gray:                  #555;
 @grayLight:             #999;
-@grayLighter:           #ccc;
+@grayLighter:           #ddd;
 @white:                 #fff;
-
 
 // Accent colors
 // -------------------------
@@ -39,23 +38,25 @@
 
 // Links
 // -------------------------
-@linkColor:             @black; /*#657B83;*/ /*#2978A0;*/
-@linkColorHover:        @black; /*darken(@linkColor, 15%);*/
+@linkColor:             #325D72;
+@linkColorHover:        darken(@linkColor, 15%);
 
 
 // Typography
 // -------------------------
 /*@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;*/
 @sansFontFamily:        "Gill Sans", "Lucida Grande", Verdana, sans-serif;
-/*@serifFontFamily:       Georgia, "Times New Roman", Times, serif;*/
-@serifFontFamily:       Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-/*@monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;*/
-@monoFontFamily:        Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+@serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+/*@serifFontFamily:       Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;*/
+@monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
-@baseFontSize:          16px;
-@baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        30px;
-@altFontFamily:         @serifFontFamily;
+@baseFontSize:          14px;
+@baseFontFamily:        @serifFontFamily;
+@baseLineHeight:        24px;
+@altFontFamily:         @sansFontFamily;
+
+@brandFontFamily:       @sansFontFamily;
+@brandFontWeight:       normal;
 
 @headingsFontFamily:    @sansFontFamily; // empty to use BS default, @baseFontFamily
 @headingsFontWeight:    normal;  // instead of browser default, bold

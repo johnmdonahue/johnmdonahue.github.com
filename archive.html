@@ -1,0 +1,17 @@
+---
+layout: default
+---
+          <section>
+            <dl class="dl-horizontal">
+            {% for post in site.posts %}
+              <dt>
+                {{ post.date | date_to_string }}
+              </dt>
+              <dd>
+                <a href="{{ post.url }}">
+                  <span class="title">{{ post.title }}</span>
+                </a>
+              </dd>
+            {% endfor %}
+            </dl>
+          </section>

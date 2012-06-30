@@ -4,37 +4,77 @@
 
 // Custom
 article {
-  font-family: @serifFontFamily;
-  font-size: 16px;
+  /*font-family: @serifFontFamily;*/
+  /*font-size: 16px;*/
+  /*padding-bottom: 30px;*/
 }
-small.date {
-  text-transform: uppercase;
+article p {
+  text-align: justify;
+}
+article > footer {
+  padding-top: 40px;
+  font-style: italic;
+}
+article > header h2:before {
+  /*content: "»";*/
+/*  margin-left: -20px;*/
+}
+.meta {
+  /*text-transform: uppercase;*/
   color: @grayLight;
+  /*white-space: nowrap;*/
+  /*font-style: italic;*/
 }
-.page-header h1 {
+.page-footer, .page-header {
   text-transform: uppercase;
+  font-family: @sansFontFamily;
 }
-.gist {
-  padding: 20px 0;
+.highlight {
+  margin: 20px 0;
 }
 header, footer {
   padding: 10px 0;
 }
 .page-header h1,
-.page-header ul {
+.page-header li {
+  font-size: 16px;
+  line-height: 30px;
+}
+.page-header h1,
+.page-header ul,
+.page-footer p {
   display: inline-block;
-  margin: 0 -10px;
-  font-size: 18px;
 }
+.page-footer p small,
+.page-footer a,
 .page-header a {
-  padding: 10px;
-  border: none;
+  color: @gray;
 }
-.page-header a:hover, .page-header a:focus {
-  border: none;
+h1 a,
+h2 a,
+h3 a {
+  color: @grayDarker;
+}
+h1 a:hover,
+h2 a:hover,
+h3 a:hover {
+  color: @black;
+}
+.gist-link {
+  color: black;
+}
+.page-footer a:hover,
+.page-footer a:focus,
+.page-header a:hover,
+.page-header a:focus {
+  color: @black;
+  text-decoration: none;
 }
 ul.social-icons li {
   display: inline-block;
+}
+.social-icons a {
+  color: @grayLighter;
 }
 @font-face {
   /* 
@@ -56,6 +96,7 @@ ul.social-icons li {
   font-style: normal;
   display: inline-block;
   text-decoration: inherit;
+  padding: 0 10px;
 }
 .icon-github:before { content: "\f09b"; }
 .icon-twitter:before { content: "\f099"; }
@@ -88,32 +129,32 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizelegibility; // Fix the character spacing for headings
   small {
     font-weight: normal;
-    color: @grayLight;
+    color: @gray;
   }
 }
 h1 {
   font-size: 30px;
   line-height: @baseLineHeight * 1.5;
   small {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 h2 {
-  font-size: 24px;
+  font-size: 20px;
   line-height: @baseLineHeight * 1.5;
-  small {
-    font-size: 18px;
-  }
-}
-h3 {
-  font-size: 18px;
-  line-height: @baseLineHeight;
   small {
     font-size: 14px;
   }
 }
+h3 {
+  font-size: 16px;
+  line-height: @baseLineHeight * 1.25;
+  small {
+    font-size: 12px;
+  }
+}
 h4, h5, h6 {
-  line-height: @baseLineHeight;
+  line-height: @baseLineHeight * 1.25;
 }
 h4 {
   font-size: 14px;
@@ -132,18 +173,18 @@ h6 {
 
 // Page header
 .page-header {
-  padding-bottom: @baseLineHeight - 1;
-  margin: @baseLineHeight 0;
-  border-bottom: 1px solid @grayLighter;
+  /*padding-bottom: @baseLineHeight - 1;*/
+  margin: 16px 0; /* @baseLineHeight 0 0; */
+  /*border-bottom: 1px solid @grayLighter;*/
 }
 .page-header h1 {
-  line-height: 1;
+  line-height: 28px;
 }
 
 .page-footer {
   padding-top: @baseLineHeight - 1;
-  margin: @baseLineHeight 0;
-  border-top: 1px solid @grayLighter;
+  margin: @baseLineHeight 0 0;
+  /*border-top: 1px solid @grayLighter;*/
 }
 
 // LISTS
@@ -184,7 +225,7 @@ dd {
   line-height: @baseLineHeight;
 }
 dt {
-  font-weight: bold;
+  /*font-weight: bold;*/
   line-height: @baseLineHeight - 1; // fix jank Helvetica Neue font bug
 }
 dd {
@@ -200,7 +241,7 @@ dd {
     .text-overflow();
   }
   dd {
-    margin-left: 130px;
+    margin-left: 150px;
   }
 }
 
@@ -211,10 +252,9 @@ dd {
 hr {
   margin: @baseLineHeight 0;
   border: 0;
-  border-top: 1px solid @hrBorder;
-  border-bottom: 1px solid @white;
+  /*border-top: 1px solid @hrBorder;*/
+  border-bottom: 1px dashed @grayLighter;
 }
-
 // Emphasis
 strong {
   font-weight: bold;

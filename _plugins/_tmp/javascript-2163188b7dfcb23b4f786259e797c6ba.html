@@ -1,0 +1,19 @@
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">everyauth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;everyauth&#39;</span><span class="p">)</span>
+
+<span class="nx">everyauth</span><span class="p">.</span><span class="nx">github</span>
+
+  <span class="p">.</span><span class="nx">apiHost</span><span class="p">(</span><span class="s1">&#39;https://api.github.com&#39;</span><span class="p">)</span>
+
+  <span class="p">.</span><span class="nx">fetchOAuthUser</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">accessToken</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Promise</span><span class="p">()</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">oauth</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">apiHost</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/user&#39;</span><span class="p">,</span> <span class="nx">accessToken</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">p</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+      <span class="p">}</span>
+      <span class="kd">var</span> <span class="nx">oauthUser</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+      <span class="nx">p</span><span class="p">.</span><span class="nx">fulfill</span><span class="p">(</span><span class="nx">oauthUser</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="nx">p</span>
+  <span class="p">})</span>
+</code></pre>
+</div>

@@ -1,0 +1,27 @@
+<div class="highlight"><pre><code class="text"># Fork the repo on GitHub then clone your fork locally
+$ git clone git@github.com:[your username]/[repo name].git
+$ cd repo/
+
+# Add the origin repo as an upstream remote
+$ git remote add upstream git://github.com/[origin user]/[repo name].git
+
+# Create a topic branch
+$ git checkout -b feature-or-bug-fix
+
+# Make changes and commit
+$ git commit -am &quot;fix the things&quot;
+
+# Checkout master and pull upstream changes
+$ git checkout master
+$ git pull upstream master
+
+# Rebase changes from master on your topic branch
+$ git checkout feature-or-bug-fix
+$ git rebase master
+
+# Push your topic branch to your remote fork
+$ git push origin feature-or-bug-fix
+
+# Send your pull request
+</code></pre>
+</div>

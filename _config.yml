@@ -1,11 +1,11 @@
 # Jekyll
+markdown: redcarpet2
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 pygments: true
-markdown: redcarpet
-paginate: 10 
 permalink: /:year/:title/ 
-exclude: [README.md, less, CNAME]
+exclude: ["README.md", "less", "CNAME"]
 auto: true
-pygments: true
 baseurl: /
 url: http://johnmdonahue.com
 title: johnmdonahue
@@ -15,4 +15,3 @@ author:
   github: johnmdonahue
   twitter: johnmdonahue
   gravatar: d3e55f4860218d6a2fcb33726c29005f
-links: []
