@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>johnmdonahue</title>
+  <title>Installing Node from GitHub</title>
 
   <!--
   Hosted on GitHub Pages: http://pages.github.com/
@@ -15,9 +15,9 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta property="og:title" content="johnmdonahue">
+  <meta property="og:title" content="johnmdonahue &raquo; Installing Node from GitHub">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="http://johnmdonahue.com/archive.html">
+  <meta property="og:url" content="http://johnmdonahue.com/2012/installing-node-from-github/">
   <meta property="og:image" content="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=150">
 
   <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -45,38 +45,70 @@
       <div class="clearfix"></div>
     </header>
     <section class="page-body">
-                <section>
-            <dl class="dl-horizontal">
-            
-              <dt>
-                12 Jun 2012
-              </dt>
-              <dd>
-                <a href="/2012/github-v3-everyauth-fix/">
-                  <span class="title">GitHub API v3 everyauth Shim</span>
-                </a>
-              </dd>
-            
-              <dt>
-                16 Feb 2012
-              </dt>
-              <dd>
-                <a href="/2012/installing-node-from-github/">
-                  <span class="title">Installing Node from GitHub</span>
-                </a>
-              </dd>
-            
-              <dt>
-                12 Dec 2011
-              </dt>
-              <dd>
-                <a href="/2011/pull-request-basics/">
-                  <span class="title">Pull Request Basics</span>
-                </a>
-              </dd>
-            
-            </dl>
-          </section>
+                  <article>
+              <header>
+                <h1>
+                  <a href="">Installing Node from GitHub</a>
+                </h1>
+                <p class="meta">
+                  16 February 2012
+                </p>
+              </header>
+              <section>
+                <p>Node already has an awesome <a href="http://nodejs.org">installer</a> as well as a
+few version manager options
+(<a href="https://github.com/creationix/nvm/">creationix/nvm</a>,
+<a href="https://github.com/visionmedia/n/">visionmedia/n</a>). But if you just
+want the flexibility to stay on the bleeding edge or install from a
+specific commit/tag of interest, building from GitHub is a great
+alternative.</p>
+
+<!-- more -->
+
+<h2 id="toc_9">Clone or fork the repo</h2>
+<div class="highlight"><pre><code class="text">$ git clone https://github.com/joyent/node.git &amp;&amp; cd node
+</code></pre>
+</div>
+
+<h2 id="toc_10">Select a tag or commit to build</h2>
+<div class="highlight"><pre><code class="text">$ git tag
+v0.5.6
+v0.5.7
+...
+v0.6.1
+v0.6.10
+$ git checkout v0.6.10
+</code></pre>
+</div>
+
+<h2 id="toc_11">Build</h2>
+<div class="highlight"><pre><code class="text">$ ./configure
+$ make
+$ make install
+$ node -v
+v0.6.10
+</code></pre>
+</div>
+
+<p>Post install, I like to put the seat back down and checkout <code>master</code> so
+it&#39;s primed and ready to let me quickly jump back in and grab the latest
+goodness.</p>
+<div class="highlight"><pre><code class="text">$ cd node &amp;&amp; git pull
+$ git checkout badass-newness
+</code></pre>
+</div>
+
+              </section>
+              <footer>
+                <p>
+                  <small>Comments? <a href="https://twitter.com/johnmdonahue">@johnmdonahue</a></small>
+                </p>
+              <!-- <footer id="share">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-via="johnmdonahue" data-count="none">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+              </footer> -->
+              <div class="clearfix"></div>
+            </article>
 
     </section>
     <footer class="page-footer">

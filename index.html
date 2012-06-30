@@ -1,25 +1,152 @@
----
-layout: default
-is_index: true
----
-                  {% for post in site.posts limit:10 %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>johnmdonahue</title>
+
+  <!--
+  Hosted on GitHub Pages: http://pages.github.com/
+  Using Jekyll: http://github.com/mojombo/jekyll
+  Twitter Bootstrap: http://twitter.github.com/bootstrap
+  Icons adapted from FontAwesome: http://fortawesome.github.com/Font-Awesome/
+  -->
+
+  <meta name="author" content="John Donahue">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:title" content="johnmdonahue">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://johnmdonahue.com/index.html">
+  <meta property="og:image" content="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=150">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <!-- Le styles -->
+
+  <link rel="stylesheet" href="/css/main.css" type="text/css">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=32"  rel="shortcut icon" >
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=57"  rel="apple-touch-icon">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=72"  rel="apple-touch-icon" sizes="72x72">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=114" rel="apple-touch-icon" sizes="114x114">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=144" rel="apple-touch-icon" sizes="144x144">
+  <link href="http://feeds.feedburner.com/johnmdonahue" rel="alternate" type="application/rss+xml" title="johnmdonahue">
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <h1 class="pull-left"><a href="/">johnmdonahue</a></h1>
+      <ul class="social-icons unstyled pull-right">
+        <li><a href="https://github.com/johnmdonahue"><span class="icon icon-github"></span><span class="hidden">GitHub</span></a></li>
+        <li><a href="https://twitter.com/johnmdonahue"><span class="icon icon-twitter"></span><span class="hidden">Twitter</span></a></li>
+      </ul>
+      <div class="clearfix"></div>
+    </header>
+    <section class="page-body">
+                        
                   <article>
                     <header>
                       <h2>
-                        <a href="{{ post.url }}"><span class="title">{{ post.title }}</span></a>
+                        <a href="/2012/github-v3-everyauth-fix/"><span class="title">GitHub API v3 everyauth Shim</span></a>
                       </h2>
                       <p class="meta">
-                        {{ post.date | date_to_long_string }}
+                        12 June 2012
                       </p>
                     </header>
                     <section>
-                      {{ post.content | split: '<!-- more -->' | first }}
+                      <p>GitHub shut down <a href="https://github.com/blog/1160-github-api-v2-end-of-life">API v1 and
+v2</a> today which
+will cause apps relying on
+<a href="https://github.com/bnoguchi/everyauth">bnoguchi/everyauth</a> to fail. In
+lieu of a pull request or package update, here&#39;s a quick shim that
+overwrites the default
+<a href="https://github.com/bnoguchi/everyauth/blob/master/lib/modules/github.js#L10"><code>apiHost</code></a>
+and
+<a href="https://github.com/bnoguchi/everyauth/blob/master/lib/modules/github.js#L22"><code>fetchOAuthUser</code></a>.</p>
+
+
                       <p>
-                        <em><a href="{{ post.url }}">more &hellip;</a></em>
+                        <em><a href="/2012/github-v3-everyauth-fix/">more &hellip;</a></em>
                       </p>
                     </section>
                   </article>
-                  {% unless forloop.last %}
+                  
                   <hr>
-                  {% endunless %}
-                  {% endfor %}
+                  
+                  
+                  <article>
+                    <header>
+                      <h2>
+                        <a href="/2012/installing-node-from-github/"><span class="title">Installing Node from GitHub</span></a>
+                      </h2>
+                      <p class="meta">
+                        16 February 2012
+                      </p>
+                    </header>
+                    <section>
+                      <p>Node already has an awesome <a href="http://nodejs.org">installer</a> as well as a
+few version manager options
+(<a href="https://github.com/creationix/nvm/">creationix/nvm</a>,
+<a href="https://github.com/visionmedia/n/">visionmedia/n</a>). But if you just
+want the flexibility to stay on the bleeding edge or install from a
+specific commit/tag of interest, building from GitHub is a great
+alternative.</p>
+
+
+                      <p>
+                        <em><a href="/2012/installing-node-from-github/">more &hellip;</a></em>
+                      </p>
+                    </section>
+                  </article>
+                  
+                  <hr>
+                  
+                  
+                  <article>
+                    <header>
+                      <h2>
+                        <a href="/2011/pull-request-basics/"><span class="title">Pull Request Basics</span></a>
+                      </h2>
+                      <p class="meta">
+                        12 December 2011
+                      </p>
+                    </header>
+                    <section>
+                      <p>I&#39;ve dropped my share of git bombs and still do, so I know it can be a real pain in the ass &mdash; and a bit embarassing &mdash; to skip a rebase/pull/merge when working on a pull request, so here&#39;s a generic quick reference for the standard GitHub contribution workflow. Every project has it&#39;s own guidelines but this should cover the basics.</p>
+
+
+                      <p>
+                        <em><a href="/2011/pull-request-basics/">more &hellip;</a></em>
+                      </p>
+                    </section>
+                  </article>
+                  
+                  
+
+    </section>
+    <footer class="page-footer">
+      <p class="pull-right">
+        <small><a href="/">home</a> / <a href="/archive.html">archives</a></small>
+      </p>
+      <p class="pull-left">
+        <small>Copyright &copy; 2011-2012</small>
+      </p>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <script>
+    // Google
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-32617065-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>

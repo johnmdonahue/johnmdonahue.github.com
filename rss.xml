@@ -1,27 +1,187 @@
----
-layout: nil
----
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <atom:link href="http://johnmdonahue.com/rss.xml" rel="self" type="application/rss+xml" />
-    <title>{{ site.title }}</title>
-    <link>{{ site.url }}</link>
+    <title>johnmdonahue</title>
+    <link>http://johnmdonahue.com</link>
     <description></description>
     <language>en-us</language>
-    <copyright>Copyright {{ site.time | date: "%Y" }} {{ site.author.name }}</copyright>
-    <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-    <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+    <copyright>Copyright 2012 John Donahue</copyright>
+    <pubDate>Sat, 30 Jun 2012 00:28:28 -0700</pubDate>
+    <lastBuildDate>Sat, 30 Jun 2012 00:28:28 -0700</lastBuildDate>
     <docs>http://cyber.law.harvard.edu/rss/rss.html</docs>
     <generator>Jekyll: https://github.com/johnmdonahue/johnmdonahue.github.com</generator>
-    {% for post in site.posts %}
+    
     <item>
-      <title>{{ post.title }}</title>
-      <link>{{ site.url }}{{ post.url }}</link>
-      <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-      <author>{{ site.author.email }} (John Donahue)</author>
-      <guid>{{ site.url }}{{ post.id }}</guid>
-      <description>{{ post.content | xml_escape }}</description>
+      <title>GitHub API v3 everyauth Shim</title>
+      <link>http://johnmdonahue.com/2012/github-v3-everyauth-fix/</link>
+      <pubDate>Tue, 12 Jun 2012 00:00:00 -0700</pubDate>
+      <author>johnmdonahue@gmail.com (John Donahue)</author>
+      <guid>http://johnmdonahue.com/2012/github-v3-everyauth-fix</guid>
+      <description>&lt;p&gt;GitHub shut down &lt;a href=&quot;https://github.com/blog/1160-github-api-v2-end-of-life&quot;&gt;API v1 and
+v2&lt;/a&gt; today which
+will cause apps relying on
+&lt;a href=&quot;https://github.com/bnoguchi/everyauth&quot;&gt;bnoguchi/everyauth&lt;/a&gt; to fail. In
+lieu of a pull request or package update, here&amp;#39;s a quick shim that
+overwrites the default
+&lt;a href=&quot;https://github.com/bnoguchi/everyauth/blob/master/lib/modules/github.js#L10&quot;&gt;&lt;code&gt;apiHost&lt;/code&gt;&lt;/a&gt;
+and
+&lt;a href=&quot;https://github.com/bnoguchi/everyauth/blob/master/lib/modules/github.js#L22&quot;&gt;&lt;code&gt;fetchOAuthUser&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;everyauth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;everyauth&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;everyauth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;github&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apiHost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;https://api.github.com&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fetchOAuthUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;accessToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;oauth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apiHost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/user&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;accessToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;oauthUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fulfill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;oauthUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
     </item>
-    {% endfor %}
+    
+    <item>
+      <title>Installing Node from GitHub</title>
+      <link>http://johnmdonahue.com/2012/installing-node-from-github/</link>
+      <pubDate>Thu, 16 Feb 2012 00:00:00 -0800</pubDate>
+      <author>johnmdonahue@gmail.com (John Donahue)</author>
+      <guid>http://johnmdonahue.com/2012/installing-node-from-github</guid>
+      <description>&lt;p&gt;Node already has an awesome &lt;a href=&quot;http://nodejs.org&quot;&gt;installer&lt;/a&gt; as well as a
+few version manager options
+(&lt;a href=&quot;https://github.com/creationix/nvm/&quot;&gt;creationix/nvm&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/visionmedia/n/&quot;&gt;visionmedia/n&lt;/a&gt;). But if you just
+want the flexibility to stay on the bleeding edge or install from a
+specific commit/tag of interest, building from GitHub is a great
+alternative.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;toc_9&quot;&gt;Clone or fork the repo&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git clone https://github.com/joyent/node.git &amp;amp;&amp;amp; cd node
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;toc_10&quot;&gt;Select a tag or commit to build&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git tag
+v0.5.6
+v0.5.7
+...
+v0.6.1
+v0.6.10
+$ git checkout v0.6.10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;toc_11&quot;&gt;Build&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ ./configure
+$ make
+$ make install
+$ node -v
+v0.6.10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Post install, I like to put the seat back down and checkout &lt;code&gt;master&lt;/code&gt; so
+it&amp;#39;s primed and ready to let me quickly jump back in and grab the latest
+goodness.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ cd node &amp;amp;&amp;amp; git pull
+$ git checkout badass-newness
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pull Request Basics</title>
+      <link>http://johnmdonahue.com/2011/pull-request-basics/</link>
+      <pubDate>Mon, 12 Dec 2011 00:00:00 -0800</pubDate>
+      <author>johnmdonahue@gmail.com (John Donahue)</author>
+      <guid>http://johnmdonahue.com/2011/pull-request-basics</guid>
+      <description>&lt;p&gt;I&amp;#39;ve dropped my share of git bombs and still do, so I know it can be a real pain in the ass &amp;mdash; and a bit embarassing &amp;mdash; to skip a rebase/pull/merge when working on a pull request, so here&amp;#39;s a generic quick reference for the standard GitHub contribution workflow. Every project has it&amp;#39;s own guidelines but this should cover the basics.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;toc_0&quot;&gt;Fork&lt;/h2&gt;
+
+&lt;p&gt;Fork the original repo on GitHub and clone it locally.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git clone git@github.com:you/repo.git
+$ cd repo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;toc_1&quot;&gt;Add upstream&lt;/h2&gt;
+
+&lt;p&gt;Add the original repository as a remote named upstream. This gives you a
+ to pull remote changes.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git remote add upstream git://github.com/original/repo.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;toc_2&quot;&gt;Branch&lt;/h2&gt;
+
+&lt;p&gt;Create a topic branch.  If your pull request is a new feature, you
+will probably need to work from a development branch rather than
+&lt;code&gt;master&lt;/code&gt;. For example, many projects use a &lt;code&gt;develop&lt;/code&gt; or &lt;code&gt;*-wip&lt;/code&gt; branch
+for this. A hot fix on the other hand might make more sense targeted at
+master. The remaining instructions will assume &lt;code&gt;master&lt;/code&gt; but it&amp;#39;s important
+to make sure your work is branched from an appropriate commit.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git checkout -b feature-or-bug-fix
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;toc_3&quot;&gt;Hack away&lt;/h2&gt;
+
+&lt;p&gt;Make your changes, add tests and commit.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git commit -am &amp;quot;fix the things&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;toc_4&quot;&gt;Pull upstream&lt;/h2&gt;
+
+&lt;p&gt;Checkout &lt;code&gt;master&lt;/code&gt; and pull in any upstream changes. You should not run
+into any merge conflicts at this point since all work is being done on a
+topic branch.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git checkout master
+$ git pull upstream master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;toc_5&quot;&gt;Rebase&lt;/h2&gt;
+
+&lt;p&gt;This is the fun bit. If there are conflicts between your branch and the
+pulled in remote changes, you will need to merge them. Merging is
+outside the scope of this post but it&amp;#39;s a good idea to &lt;a href=&quot;/images/rebase-no-conflict.jpg&quot;&gt;rebase regularly&lt;/a&gt;. &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git checkout feature-or-bug-fix
+$ git rebase master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;toc_6&quot;&gt;Push&lt;/h2&gt;
+
+&lt;p&gt;Push the topic branch to your remote fork.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git push origin feature-or-bug-fix
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;toc_7&quot;&gt;Pull request&lt;/h2&gt;
+
+&lt;p&gt;Submit the pull request. As noted above, be sure that you
+target the appropriate branch &amp;mdash; namely the one you branched from
+originally.&lt;/p&gt;
+
+&lt;h2 id=&quot;toc_8&quot;&gt;Grab yourself a nice bourbon rocks.&lt;/h2&gt;
+</description>
+    </item>
+    
   </channel> 
 </rss>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>GitHub API v3 everyauth Shim</title>
+
+  <!--
+  Hosted on GitHub Pages: http://pages.github.com/
+  Using Jekyll: http://github.com/mojombo/jekyll
+  Twitter Bootstrap: http://twitter.github.com/bootstrap
+  Icons adapted from FontAwesome: http://fortawesome.github.com/Font-Awesome/
+  -->
+
+  <meta name="author" content="John Donahue">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:title" content="johnmdonahue &raquo; GitHub API v3 everyauth Shim">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://johnmdonahue.com/2012/github-v3-everyauth-fix/">
+  <meta property="og:image" content="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=150">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <!-- Le styles -->
+
+  <link rel="stylesheet" href="/css/main.css" type="text/css">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=32"  rel="shortcut icon" >
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=57"  rel="apple-touch-icon">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=72"  rel="apple-touch-icon" sizes="72x72">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=114" rel="apple-touch-icon" sizes="114x114">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=144" rel="apple-touch-icon" sizes="144x144">
+  <link href="http://feeds.feedburner.com/johnmdonahue" rel="alternate" type="application/rss+xml" title="johnmdonahue">
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <h1 class="pull-left"><a href="/">johnmdonahue</a></h1>
+      <ul class="social-icons unstyled pull-right">
+        <li><a href="https://github.com/johnmdonahue"><span class="icon icon-github"></span><span class="hidden">GitHub</span></a></li>
+        <li><a href="https://twitter.com/johnmdonahue"><span class="icon icon-twitter"></span><span class="hidden">Twitter</span></a></li>
+      </ul>
+      <div class="clearfix"></div>
+    </header>
+    <section class="page-body">
+                  <article>
+              <header>
+                <h1>
+                  <a href="">GitHub API v3 everyauth Shim</a>
+                </h1>
+                <p class="meta">
+                  12 June 2012
+                </p>
+              </header>
+              <section>
+                <p>GitHub shut down <a href="https://github.com/blog/1160-github-api-v2-end-of-life">API v1 and
+v2</a> today which
+will cause apps relying on
+<a href="https://github.com/bnoguchi/everyauth">bnoguchi/everyauth</a> to fail. In
+lieu of a pull request or package update, here&#39;s a quick shim that
+overwrites the default
+<a href="https://github.com/bnoguchi/everyauth/blob/master/lib/modules/github.js#L10"><code>apiHost</code></a>
+and
+<a href="https://github.com/bnoguchi/everyauth/blob/master/lib/modules/github.js#L22"><code>fetchOAuthUser</code></a>.</p>
+
+<!-- more -->
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">everyauth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;everyauth&#39;</span><span class="p">)</span>
+
+<span class="nx">everyauth</span><span class="p">.</span><span class="nx">github</span>
+
+  <span class="p">.</span><span class="nx">apiHost</span><span class="p">(</span><span class="s1">&#39;https://api.github.com&#39;</span><span class="p">)</span>
+
+  <span class="p">.</span><span class="nx">fetchOAuthUser</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">accessToken</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">Promise</span><span class="p">()</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">oauth</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">apiHost</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/user&#39;</span><span class="p">,</span> <span class="nx">accessToken</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">p</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+      <span class="p">}</span>
+      <span class="kd">var</span> <span class="nx">oauthUser</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+      <span class="nx">p</span><span class="p">.</span><span class="nx">fulfill</span><span class="p">(</span><span class="nx">oauthUser</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="nx">p</span>
+  <span class="p">})</span>
+</code></pre>
+</div>
+
+              </section>
+              <footer>
+                <p>
+                  <small>Comments? <a href="https://twitter.com/johnmdonahue">@johnmdonahue</a></small>
+                </p>
+              <!-- <footer id="share">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-via="johnmdonahue" data-count="none">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+              </footer> -->
+              <div class="clearfix"></div>
+            </article>
+
+    </section>
+    <footer class="page-footer">
+      <p class="pull-right">
+        <small><a href="/">home</a> / <a href="/archive.html">archives</a></small>
+      </p>
+      <p class="pull-left">
+        <small>Copyright &copy; 2011-2012</small>
+      </p>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <script>
+    // Google
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-32617065-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>

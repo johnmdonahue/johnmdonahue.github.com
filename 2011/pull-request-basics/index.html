@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pull Request Basics</title>
+
+  <!--
+  Hosted on GitHub Pages: http://pages.github.com/
+  Using Jekyll: http://github.com/mojombo/jekyll
+  Twitter Bootstrap: http://twitter.github.com/bootstrap
+  Icons adapted from FontAwesome: http://fortawesome.github.com/Font-Awesome/
+  -->
+
+  <meta name="author" content="John Donahue">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:title" content="johnmdonahue &raquo; Pull Request Basics">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://johnmdonahue.com/2011/pull-request-basics/">
+  <meta property="og:image" content="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=150">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <!-- Le styles -->
+
+  <link rel="stylesheet" href="/css/main.css" type="text/css">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=32"  rel="shortcut icon" >
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=57"  rel="apple-touch-icon">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=72"  rel="apple-touch-icon" sizes="72x72">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=114" rel="apple-touch-icon" sizes="114x114">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=144" rel="apple-touch-icon" sizes="144x144">
+  <link href="http://feeds.feedburner.com/johnmdonahue" rel="alternate" type="application/rss+xml" title="johnmdonahue">
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <h1 class="pull-left"><a href="/">johnmdonahue</a></h1>
+      <ul class="social-icons unstyled pull-right">
+        <li><a href="https://github.com/johnmdonahue"><span class="icon icon-github"></span><span class="hidden">GitHub</span></a></li>
+        <li><a href="https://twitter.com/johnmdonahue"><span class="icon icon-twitter"></span><span class="hidden">Twitter</span></a></li>
+      </ul>
+      <div class="clearfix"></div>
+    </header>
+    <section class="page-body">
+                  <article>
+              <header>
+                <h1>
+                  <a href="">Pull Request Basics</a>
+                </h1>
+                <p class="meta">
+                  12 December 2011
+                </p>
+              </header>
+              <section>
+                <p>I&#39;ve dropped my share of git bombs and still do, so I know it can be a real pain in the ass &mdash; and a bit embarassing &mdash; to skip a rebase/pull/merge when working on a pull request, so here&#39;s a generic quick reference for the standard GitHub contribution workflow. Every project has it&#39;s own guidelines but this should cover the basics.</p>
+
+<!-- more -->
+
+<h2 id="toc_0">Fork</h2>
+
+<p>Fork the original repo on GitHub and clone it locally.</p>
+<div class="highlight"><pre><code class="text">$ git clone git@github.com:you/repo.git
+$ cd repo
+</code></pre>
+</div>
+
+<h2 id="toc_1">Add upstream</h2>
+
+<p>Add the original repository as a remote named upstream. This gives you a
+ to pull remote changes.</p>
+<div class="highlight"><pre><code class="text">$ git remote add upstream git://github.com/original/repo.git
+</code></pre>
+</div>
+
+<h2 id="toc_2">Branch</h2>
+
+<p>Create a topic branch.  If your pull request is a new feature, you
+will probably need to work from a development branch rather than
+<code>master</code>. For example, many projects use a <code>develop</code> or <code>*-wip</code> branch
+for this. A hot fix on the other hand might make more sense targeted at
+master. The remaining instructions will assume <code>master</code> but it&#39;s important
+to make sure your work is branched from an appropriate commit.</p>
+<div class="highlight"><pre><code class="text">$ git checkout -b feature-or-bug-fix
+</code></pre>
+</div>
+
+<h2 id="toc_3">Hack away</h2>
+
+<p>Make your changes, add tests and commit.</p>
+<div class="highlight"><pre><code class="text">$ git commit -am &quot;fix the things&quot;
+</code></pre>
+</div>
+
+<h2 id="toc_4">Pull upstream</h2>
+
+<p>Checkout <code>master</code> and pull in any upstream changes. You should not run
+into any merge conflicts at this point since all work is being done on a
+topic branch.</p>
+<div class="highlight"><pre><code class="text">$ git checkout master
+$ git pull upstream master
+</code></pre>
+</div>
+
+<h2 id="toc_5">Rebase</h2>
+
+<p>This is the fun bit. If there are conflicts between your branch and the
+pulled in remote changes, you will need to merge them. Merging is
+outside the scope of this post but it&#39;s a good idea to <a href="/images/rebase-no-conflict.jpg">rebase regularly</a>. </p>
+<div class="highlight"><pre><code class="text">$ git checkout feature-or-bug-fix
+$ git rebase master
+</code></pre>
+</div>
+
+<h2 id="toc_6">Push</h2>
+
+<p>Push the topic branch to your remote fork.</p>
+<div class="highlight"><pre><code class="text">$ git push origin feature-or-bug-fix
+</code></pre>
+</div>
+
+<h2 id="toc_7">Pull request</h2>
+
+<p>Submit the pull request. As noted above, be sure that you
+target the appropriate branch &mdash; namely the one you branched from
+originally.</p>
+
+<h2 id="toc_8">Grab yourself a nice bourbon rocks.</h2>
+
+              </section>
+              <footer>
+                <p>
+                  <small>Comments? <a href="https://twitter.com/johnmdonahue">@johnmdonahue</a></small>
+                </p>
+              <!-- <footer id="share">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-via="johnmdonahue" data-count="none">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+              </footer> -->
+              <div class="clearfix"></div>
+            </article>
+
+    </section>
+    <footer class="page-footer">
+      <p class="pull-right">
+        <small><a href="/">home</a> / <a href="/archive.html">archives</a></small>
+      </p>
+      <p class="pull-left">
+        <small>Copyright &copy; 2011-2012</small>
+      </p>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <script>
+    // Google
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-32617065-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>

@@ -1,6 +1,8 @@
----
-title : Sitemap
----
-{% for page in site.pages %}{{site.url}}{{ page.url }}
-{% endfor %}{% for post in site.posts %}{{site.url}}{{ post.url }}
-{% endfor %}
+http://johnmdonahue.com/archive.html
+http://johnmdonahue.com/index.html
+http://johnmdonahue.com/rss.xml
+http://johnmdonahue.com/sitemap.txt
+http://johnmdonahue.com/2012/github-v3-everyauth-fix/
+http://johnmdonahue.com/2012/installing-node-from-github/
+http://johnmdonahue.com/2011/pull-request-basics/
+
