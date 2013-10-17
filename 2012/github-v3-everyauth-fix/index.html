@@ -8,7 +8,6 @@
   Hosted on GitHub Pages: http://pages.github.com/
   Using Jekyll: http://github.com/mojombo/jekyll
   Twitter Bootstrap: http://twitter.github.com/bootstrap
-  Icons adapted from FontAwesome: http://fortawesome.github.com/Font-Awesome/
   -->
 
   <meta name="author" content="John Donahue">
@@ -26,36 +25,37 @@
     <![endif]-->
   <!-- Le styles -->
 
-  <link rel="stylesheet" href="/css/main.css" type="text/css">
-  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=32"  rel="shortcut icon" >
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/custom.css" type="text/css">
+  <link rel="stylesheet" href="/css/syntax.css" type="text/css">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=32"  rel="shortcut icon">
   <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=57"  rel="apple-touch-icon">
   <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=72"  rel="apple-touch-icon" sizes="72x72">
   <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=114" rel="apple-touch-icon" sizes="114x114">
   <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=144" rel="apple-touch-icon" sizes="144x144">
   <link href="http://feeds.feedburner.com/johnmdonahue" rel="alternate" type="application/rss+xml" title="johnmdonahue">
+
 </head>
-<body>
-  <div class="container">
-    <header class="page-header">
-      <h1 class="pull-left"><a href="/">johnmdonahue</a></h1>
-      <ul class="social-icons unstyled pull-right">
-        <li><a href="https://github.com/johnmdonahue"><span class="icon icon-github"></span><span class="hidden">GitHub</span></a></li>
-        <li><a href="https://twitter.com/johnmdonahue"><span class="icon icon-twitter"></span><span class="hidden">Twitter</span></a></li>
-      </ul>
-      <div class="clearfix"></div>
-    </header>
-    <section class="page-body">
-                  <article>
-              <header>
-                <h1>
-                  <a href="">GitHub API v3 everyauth Shim</a>
-                </h1>
-                <p class="meta">
-                  12 June 2012
-                </p>
-              </header>
-              <section>
-                <p>GitHub shut down <a href="https://github.com/blog/1160-github-api-v2-end-of-life">API v1 and
+<body class="container">
+  <header>
+    <nav>
+      <h1>
+        <a href="/">johnmdonahue</a>
+      </h1>
+    </nav>
+  </header>
+
+            <article>
+            <header>
+              <h1>
+                <a href="#" rel="bookmark">GitHub API v3 everyauth Shim</a>
+              </h1>
+              <time datetime="2012-06-12" pubdate>
+                June 12, 2012
+              </time>
+            </header>
+            <section>
+              <p>GitHub shut down <a href="https://github.com/blog/1160-github-api-v2-end-of-life">API v1 and
 v2</a> today which
 will cause apps relying on
 <a href="https://github.com/bnoguchi/everyauth">bnoguchi/everyauth</a> to fail. In
@@ -66,7 +66,7 @@ and
 <a href="https://github.com/bnoguchi/everyauth/blob/master/lib/modules/github.js#L22"><code>fetchOAuthUser</code></a>.</p>
 
 <!-- more -->
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">everyauth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;everyauth&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">everyauth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;everyauth&#39;</span><span class="p">)</span>
 
 <span class="nx">everyauth</span><span class="p">.</span><span class="nx">github</span>
 
@@ -83,34 +83,33 @@ and
     <span class="p">})</span>
     <span class="k">return</span> <span class="nx">p</span>
   <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div>
+            </section>
+            <footer>
+              <p>
+                Comments? <a href="https://twitter.com/johnmdonahue">@johnmdonahue</a>
+              </p>
+            </footer>
+          </article>
 
-              </section>
-              <footer>
-                <p>
-                  <small>Comments? <a href="https://twitter.com/johnmdonahue">@johnmdonahue</a></small>
-                </p>
-              <!-- <footer id="share">
-                <a href="https://twitter.com/share" class="twitter-share-button" data-via="johnmdonahue" data-count="none">Tweet</a>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-              </footer> -->
-              <div class="clearfix"></div>
-            </article>
 
-    </section>
-    <footer class="page-footer">
-      <p class="pull-right">
-        <small><a href="/">home</a> / <a href="/archive.html">archives</a></small>
-      </p>
-      <p class="pull-left">
-        <small>Copyright &copy; 2011-2012</small>
-      </p>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
+  <footer>
+    <a href="/"><div class="me"></div></a>
+    <p>
+      <a href="/about/">Developer and software architect</a> at 
+      <a href="http://twobitcircus.com">Two Bit Circus</a>.
+      I can usually be tracked down as <em>johnmdonahue</em> on 
+      <a href="https://github.com/johnmdonahue">GitHub</a>,
+      <a href="https://twitter.com/johnmdonahue">Twitter</a>,
+      <a class="email" href="mailto:john.m.donahue@gmail.com">Gmail</a>,
+      IRC and elsewhere around the internets.
+    </p>
+    <p>
+      <small>&copy; 2011-2013</small>
+    </p>
+  </footer>
+
   <script>
-    // Google
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-32617065-1']);
     _gaq.push(['_trackPageview']);

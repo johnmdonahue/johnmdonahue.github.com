@@ -5,9 +5,9 @@
     <link>http://johnmdonahue.com</link>
     <description></description>
     <language>en-us</language>
-    <copyright>Copyright 2012 John Donahue</copyright>
-    <pubDate>Sat, 30 Jun 2012 00:28:28 -0700</pubDate>
-    <lastBuildDate>Sat, 30 Jun 2012 00:28:28 -0700</lastBuildDate>
+    <copyright>Copyright 2013 John Donahue</copyright>
+    <pubDate>Thu, 17 Oct 2013 12:43:32 -0700</pubDate>
+    <lastBuildDate>Thu, 17 Oct 2013 12:43:32 -0700</lastBuildDate>
     <docs>http://cyber.law.harvard.edu/rss/rss.html</docs>
     <generator>Jekyll: https://github.com/johnmdonahue/johnmdonahue.github.com</generator>
     
@@ -28,7 +28,7 @@ and
 &lt;a href=&quot;https://github.com/bnoguchi/everyauth/blob/master/lib/modules/github.js#L22&quot;&gt;&lt;code&gt;fetchOAuthUser&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 
 &lt;!-- more --&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;everyauth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;everyauth&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;everyauth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;everyauth&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;nx&quot;&gt;everyauth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;github&lt;/span&gt;
 
@@ -45,9 +45,7 @@ and
     &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -66,39 +64,32 @@ alternative.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
-&lt;h2 id=&quot;toc_9&quot;&gt;Clone or fork the repo&lt;/h2&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git clone https://github.com/joyent/node.git &amp;amp;&amp;amp; cd node
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;toc_10&quot;&gt;Select a tag or commit to build&lt;/h2&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git tag
+&lt;h2 id=&quot;toc_0&quot;&gt;Clone or fork the repo&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ git clone https://github.com/joyent/node.git
+$ cd node
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;toc_1&quot;&gt;Select a tag or commit to build&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ git tag
 v0.5.6
 v0.5.7
 ...
 v0.6.1
 v0.6.10
 $ git checkout v0.6.10
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;toc_11&quot;&gt;Build&lt;/h2&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ ./configure
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;toc_2&quot;&gt;Build&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ ./configure
 $ make
 $ make install
 $ node -v
 v0.6.10
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Post install, I like to put the seat back down and checkout &lt;code&gt;master&lt;/code&gt; so
 it&amp;#39;s primed and ready to let me quickly jump back in and grab the latest
 goodness.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ cd node &amp;amp;&amp;amp; git pull
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ cd node &amp;amp;&amp;amp; git pull
 $ git checkout badass-newness
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -114,19 +105,15 @@ $ git checkout badass-newness
 &lt;h2 id=&quot;toc_0&quot;&gt;Fork&lt;/h2&gt;
 
 &lt;p&gt;Fork the original repo on GitHub and clone it locally.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git clone git@github.com:you/repo.git
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ git clone git@github.com:you/repo.git
 $ cd repo
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;toc_1&quot;&gt;Add upstream&lt;/h2&gt;
 
 &lt;p&gt;Add the original repository as a remote named upstream. This gives you a
  to pull remote changes.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git remote add upstream git://github.com/original/repo.git
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ git remote add upstream git://github.com/original/repo.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;toc_2&quot;&gt;Branch&lt;/h2&gt;
 
 &lt;p&gt;Create a topic branch.  If your pull request is a new feature, you
@@ -135,44 +122,34 @@ will probably need to work from a development branch rather than
 for this. A hot fix on the other hand might make more sense targeted at
 master. The remaining instructions will assume &lt;code&gt;master&lt;/code&gt; but it&amp;#39;s important
 to make sure your work is branched from an appropriate commit.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git checkout -b feature-or-bug-fix
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ git checkout -b feature-or-bug-fix
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;toc_3&quot;&gt;Hack away&lt;/h2&gt;
 
 &lt;p&gt;Make your changes, add tests and commit.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git commit -am &amp;quot;fix the things&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ git commit -am &amp;quot;fix the things&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;toc_4&quot;&gt;Pull upstream&lt;/h2&gt;
 
 &lt;p&gt;Checkout &lt;code&gt;master&lt;/code&gt; and pull in any upstream changes. You should not run
 into any merge conflicts at this point since all work is being done on a
 topic branch.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git checkout master
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ git checkout master
 $ git pull upstream master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;toc_5&quot;&gt;Rebase&lt;/h2&gt;
 
 &lt;p&gt;This is the fun bit. If there are conflicts between your branch and the
 pulled in remote changes, you will need to merge them. Merging is
 outside the scope of this post but it&amp;#39;s a good idea to &lt;a href=&quot;/images/rebase-no-conflict.jpg&quot;&gt;rebase regularly&lt;/a&gt;. &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git checkout feature-or-bug-fix
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ git checkout feature-or-bug-fix
 $ git rebase master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;toc_6&quot;&gt;Push&lt;/h2&gt;
 
 &lt;p&gt;Push the topic branch to your remote fork.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;$ git push origin feature-or-bug-fix
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ git push origin feature-or-bug-fix
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;toc_7&quot;&gt;Pull request&lt;/h2&gt;
 
 &lt;p&gt;Submit the pull request. As noted above, be sure that you

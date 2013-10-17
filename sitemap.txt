@@ -1,5 +1,6 @@
-http://johnmdonahue.com/archive.html
+http://johnmdonahue.com/about/index.html
 http://johnmdonahue.com/index.html
+http://johnmdonahue.com/resume/index.html
 http://johnmdonahue.com/rss.xml
 http://johnmdonahue.com/sitemap.txt
 http://johnmdonahue.com/2012/github-v3-everyauth-fix/

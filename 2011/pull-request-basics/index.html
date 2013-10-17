@@ -8,7 +8,6 @@
   Hosted on GitHub Pages: http://pages.github.com/
   Using Jekyll: http://github.com/mojombo/jekyll
   Twitter Bootstrap: http://twitter.github.com/bootstrap
-  Icons adapted from FontAwesome: http://fortawesome.github.com/Font-Awesome/
   -->
 
   <meta name="author" content="John Donahue">
@@ -26,55 +25,52 @@
     <![endif]-->
   <!-- Le styles -->
 
-  <link rel="stylesheet" href="/css/main.css" type="text/css">
-  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=32"  rel="shortcut icon" >
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/custom.css" type="text/css">
+  <link rel="stylesheet" href="/css/syntax.css" type="text/css">
+  <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=32"  rel="shortcut icon">
   <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=57"  rel="apple-touch-icon">
   <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=72"  rel="apple-touch-icon" sizes="72x72">
   <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=114" rel="apple-touch-icon" sizes="114x114">
   <link href="http://gravatar.com/avatar/d3e55f4860218d6a2fcb33726c29005f?s=144" rel="apple-touch-icon" sizes="144x144">
   <link href="http://feeds.feedburner.com/johnmdonahue" rel="alternate" type="application/rss+xml" title="johnmdonahue">
+
 </head>
-<body>
-  <div class="container">
-    <header class="page-header">
-      <h1 class="pull-left"><a href="/">johnmdonahue</a></h1>
-      <ul class="social-icons unstyled pull-right">
-        <li><a href="https://github.com/johnmdonahue"><span class="icon icon-github"></span><span class="hidden">GitHub</span></a></li>
-        <li><a href="https://twitter.com/johnmdonahue"><span class="icon icon-twitter"></span><span class="hidden">Twitter</span></a></li>
-      </ul>
-      <div class="clearfix"></div>
-    </header>
-    <section class="page-body">
-                  <article>
-              <header>
-                <h1>
-                  <a href="">Pull Request Basics</a>
-                </h1>
-                <p class="meta">
-                  12 December 2011
-                </p>
-              </header>
-              <section>
-                <p>I&#39;ve dropped my share of git bombs and still do, so I know it can be a real pain in the ass &mdash; and a bit embarassing &mdash; to skip a rebase/pull/merge when working on a pull request, so here&#39;s a generic quick reference for the standard GitHub contribution workflow. Every project has it&#39;s own guidelines but this should cover the basics.</p>
+<body class="container">
+  <header>
+    <nav>
+      <h1>
+        <a href="/">johnmdonahue</a>
+      </h1>
+    </nav>
+  </header>
+
+            <article>
+            <header>
+              <h1>
+                <a href="#" rel="bookmark">Pull Request Basics</a>
+              </h1>
+              <time datetime="2011-12-12" pubdate>
+                December 12, 2011
+              </time>
+            </header>
+            <section>
+              <p>I&#39;ve dropped my share of git bombs and still do, so I know it can be a real pain in the ass &mdash; and a bit embarassing &mdash; to skip a rebase/pull/merge when working on a pull request, so here&#39;s a generic quick reference for the standard GitHub contribution workflow. Every project has it&#39;s own guidelines but this should cover the basics.</p>
 
 <!-- more -->
 
 <h2 id="toc_0">Fork</h2>
 
 <p>Fork the original repo on GitHub and clone it locally.</p>
-<div class="highlight"><pre><code class="text">$ git clone git@github.com:you/repo.git
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ git clone git@github.com:you/repo.git
 $ cd repo
-</code></pre>
-</div>
-
+</code></pre></div>
 <h2 id="toc_1">Add upstream</h2>
 
 <p>Add the original repository as a remote named upstream. This gives you a
  to pull remote changes.</p>
-<div class="highlight"><pre><code class="text">$ git remote add upstream git://github.com/original/repo.git
-</code></pre>
-</div>
-
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ git remote add upstream git://github.com/original/repo.git
+</code></pre></div>
 <h2 id="toc_2">Branch</h2>
 
 <p>Create a topic branch.  If your pull request is a new feature, you
@@ -83,44 +79,34 @@ will probably need to work from a development branch rather than
 for this. A hot fix on the other hand might make more sense targeted at
 master. The remaining instructions will assume <code>master</code> but it&#39;s important
 to make sure your work is branched from an appropriate commit.</p>
-<div class="highlight"><pre><code class="text">$ git checkout -b feature-or-bug-fix
-</code></pre>
-</div>
-
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ git checkout -b feature-or-bug-fix
+</code></pre></div>
 <h2 id="toc_3">Hack away</h2>
 
 <p>Make your changes, add tests and commit.</p>
-<div class="highlight"><pre><code class="text">$ git commit -am &quot;fix the things&quot;
-</code></pre>
-</div>
-
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ git commit -am &quot;fix the things&quot;
+</code></pre></div>
 <h2 id="toc_4">Pull upstream</h2>
 
 <p>Checkout <code>master</code> and pull in any upstream changes. You should not run
 into any merge conflicts at this point since all work is being done on a
 topic branch.</p>
-<div class="highlight"><pre><code class="text">$ git checkout master
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ git checkout master
 $ git pull upstream master
-</code></pre>
-</div>
-
+</code></pre></div>
 <h2 id="toc_5">Rebase</h2>
 
 <p>This is the fun bit. If there are conflicts between your branch and the
 pulled in remote changes, you will need to merge them. Merging is
 outside the scope of this post but it&#39;s a good idea to <a href="/images/rebase-no-conflict.jpg">rebase regularly</a>. </p>
-<div class="highlight"><pre><code class="text">$ git checkout feature-or-bug-fix
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ git checkout feature-or-bug-fix
 $ git rebase master
-</code></pre>
-</div>
-
+</code></pre></div>
 <h2 id="toc_6">Push</h2>
 
 <p>Push the topic branch to your remote fork.</p>
-<div class="highlight"><pre><code class="text">$ git push origin feature-or-bug-fix
-</code></pre>
-</div>
-
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ git push origin feature-or-bug-fix
+</code></pre></div>
 <h2 id="toc_7">Pull request</h2>
 
 <p>Submit the pull request. As noted above, be sure that you
@@ -129,31 +115,32 @@ originally.</p>
 
 <h2 id="toc_8">Grab yourself a nice bourbon rocks.</h2>
 
-              </section>
-              <footer>
-                <p>
-                  <small>Comments? <a href="https://twitter.com/johnmdonahue">@johnmdonahue</a></small>
-                </p>
-              <!-- <footer id="share">
-                <a href="https://twitter.com/share" class="twitter-share-button" data-via="johnmdonahue" data-count="none">Tweet</a>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-              </footer> -->
-              <div class="clearfix"></div>
-            </article>
+            </section>
+            <footer>
+              <p>
+                Comments? <a href="https://twitter.com/johnmdonahue">@johnmdonahue</a>
+              </p>
+            </footer>
+          </article>
 
-    </section>
-    <footer class="page-footer">
-      <p class="pull-right">
-        <small><a href="/">home</a> / <a href="/archive.html">archives</a></small>
-      </p>
-      <p class="pull-left">
-        <small>Copyright &copy; 2011-2012</small>
-      </p>
-      <div class="clearfix"></div>
-    </footer>
-  </div>
+
+  <footer>
+    <a href="/"><div class="me"></div></a>
+    <p>
+      <a href="/about/">Developer and software architect</a> at 
+      <a href="http://twobitcircus.com">Two Bit Circus</a>.
+      I can usually be tracked down as <em>johnmdonahue</em> on 
+      <a href="https://github.com/johnmdonahue">GitHub</a>,
+      <a href="https://twitter.com/johnmdonahue">Twitter</a>,
+      <a class="email" href="mailto:john.m.donahue@gmail.com">Gmail</a>,
+      IRC and elsewhere around the internets.
+    </p>
+    <p>
+      <small>&copy; 2011-2013</small>
+    </p>
+  </footer>
+
   <script>
-    // Google
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-32617065-1']);
     _gaq.push(['_trackPageview']);
